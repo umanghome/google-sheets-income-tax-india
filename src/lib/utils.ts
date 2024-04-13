@@ -3,7 +3,7 @@ export const getYearToConsider = (
   slabs: Array<[number, unknown]>,
 ) => {
   const yearAsNum = Number(year);
-  const years = slabs.map(([year]) => year).sort();
+  const years = slabs.map(([year]) => year).sort((a, b) => a - b);
 
   if (yearAsNum < years[0]) {
     // A year before the first year in the slabs
@@ -15,14 +15,17 @@ export const getYearToConsider = (
   });
 };
 
-export const getAgeToConsider = (age: number | string, ages: number[]) => {
+export const getAgeToConsider = (
+  age: number | string,
+  slabs: Array<[number, unknown]>,
+) => {
   const ageAsNum = Number(age);
 
-  const sorted = ages.sort((a, b) => a - b);
-  const found =
-    sorted.find((_age) => {
-      return ageAsNum <= _age;
-    }) || sorted[sorted.length - 1];
+  const ages = slabs.map(([slab]) => slab).sort((a, b) => a - b);
 
-  return found;
+  return (
+    ages.find((_age) => {
+      return ageAsNum <= _age;
+    }) || ages[ages.length - 1]
+  );
 };

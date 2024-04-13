@@ -21,10 +21,7 @@ export const calculateIncomeTax = (
     ([year]) => year === yearToConsider,
   )![1];
 
-  const ageToConsider = getAgeToConsider(
-    age,
-    slabsForYear.map(([age]) => age),
-  );
+  const ageToConsider = getAgeToConsider(age, slabsForYear);
 
   if (!ageToConsider) {
     throw new Error(
