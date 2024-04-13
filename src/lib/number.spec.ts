@@ -1,6 +1,6 @@
 import test from 'ava';
 
-import { lakhs, crores } from './number';
+import { crores, lakhs } from './number';
 
 test('lakhs', (t) => {
   t.is(lakhs(2), 200000);

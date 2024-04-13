@@ -5,7 +5,7 @@ import { calculateIncomeTax } from './income-tax';
 test('calculateIncomeTax: FY 2021-22 is invalid', (t) => {
   const error = t.throws(
     () => {
-      // @ts-expect-error
+      // @ts-expect-error Year is invalid
       calculateIncomeTax('2021', 30, 'new', 1000000);
     },
     { instanceOf: Error },
