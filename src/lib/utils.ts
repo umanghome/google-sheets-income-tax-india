@@ -1,16 +1,18 @@
-export const getYearToConsider = (year: number | string, years: string[]) => {
+export const getYearToConsider = (
+  year: number | string,
+  slabs: Array<[number, unknown]>,
+) => {
   const yearAsNum = Number(year);
+  const years = slabs.map(([year]) => year).sort();
 
-  const found = years
-    .sort()
-    .reverse()
-    .find((y) => {
-      const _year = Number(y);
+  if (yearAsNum < years[0]) {
+    // A year before the first year in the slabs
+    return;
+  }
 
-      return _year <= yearAsNum;
-    });
-
-  return Number(found);
+  return years.find((_year) => {
+    return yearAsNum <= _year;
+  });
 };
 
 export const getAgeToConsider = (age: number | string, ages: number[]) => {

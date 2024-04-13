@@ -6,13 +6,11 @@ type Age = number;
 type MaximumAmount = number;
 type Percentage = number;
 
-type IncomeTaxSlabs = Partial<
-  Record<FinancialYearStartIn, Array<[Age, Array<[MaximumAmount, Percentage]>]>>
+type IncomeTaxSlabs = Array<
+  [FinancialYearStartIn, Array<[Age, Array<[MaximumAmount, Percentage]>]>]
 >;
 
-const _INCOME_TAX_SLABS_OLD_REGIME_2023: NonNullable<
-  IncomeTaxSlabs[FinancialYearStartIn]
-> = [
+const _INCOME_TAX_SLABS_OLD_REGIME_2023: IncomeTaxSlabs[number][1] = [
   [
     59,
     [
@@ -41,9 +39,7 @@ const _INCOME_TAX_SLABS_OLD_REGIME_2023: NonNullable<
   ],
 ];
 
-const _INCOME_TAX_SLABS_NEW_REGIME_2023: NonNullable<
-  IncomeTaxSlabs[FinancialYearStartIn]
-> = [
+const _INCOME_TAX_SLABS_NEW_REGIME_2023: IncomeTaxSlabs[number][1] = [
   [
     Infinity,
     [
@@ -57,13 +53,13 @@ const _INCOME_TAX_SLABS_NEW_REGIME_2023: NonNullable<
   ],
 ];
 
-const _INCOME_TAX_SLABS_OLD_REGIME: IncomeTaxSlabs = {
-  2023: _INCOME_TAX_SLABS_OLD_REGIME_2023,
-};
+const _INCOME_TAX_SLABS_OLD_REGIME: IncomeTaxSlabs = [
+  [2023, _INCOME_TAX_SLABS_OLD_REGIME_2023],
+] as const;
 
-const _INCOME_TAX_SLABS_NEW_REGIME: IncomeTaxSlabs = {
-  2023: _INCOME_TAX_SLABS_NEW_REGIME_2023,
-};
+const _INCOME_TAX_SLABS_NEW_REGIME: IncomeTaxSlabs = [
+  [2023, _INCOME_TAX_SLABS_NEW_REGIME_2023],
+];
 
 export const INCOME_TAX_SLABS_BY_REGIME: Record<Regime, IncomeTaxSlabs> = {
   old: _INCOME_TAX_SLABS_OLD_REGIME,

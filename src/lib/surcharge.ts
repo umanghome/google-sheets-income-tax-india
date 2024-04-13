@@ -13,14 +13,15 @@ export const calculateSurcharge = (
   taxableAmount: number,
 ) => {
   const slabsForRegime = SURCHARGE_SLABS_BY_REGIME[regime];
-  const yearToConsider = getYearToConsider(year, Object.keys(slabsForRegime));
+  const yearToConsider = getYearToConsider(year, slabsForRegime);
 
   if (!yearToConsider) {
     throw new Error(`Invalid year ${year}`);
   }
 
-  const slabsForYear =
-    slabsForRegime[yearToConsider as keyof typeof slabsForRegime]!;
+  const slabsForYear = slabsForRegime.find(
+    ([year]) => year === yearToConsider,
+  )![1];
 
   const slab = slabsForYear.find(([amount]) => taxableAmount <= amount)!;
   const previousSlab = slabsForYear[slabsForYear.indexOf(slab) - 1];

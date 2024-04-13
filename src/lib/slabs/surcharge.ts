@@ -5,13 +5,11 @@ import { crores, lakhs } from '../number.js';
 type MaximumAmount = number;
 type Percentage = number;
 
-type SurchargeSlabs = Partial<
-  Record<FinancialYearStartIn, Array<[MaximumAmount, Percentage]>>
+type SurchargeSlabs = Array<
+  [FinancialYearStartIn, Array<[MaximumAmount, Percentage]>]
 >;
 
-const _SURCHARGE_SLABS_OLD_REGIME: NonNullable<
-  SurchargeSlabs[FinancialYearStartIn]
-> = [
+const _SURCHARGE_SLABS_OLD_REGIME: SurchargeSlabs[number][1] = [
   [lakhs(50), 0],
   [crores(1), 10],
   [crores(2), 15],
@@ -19,9 +17,7 @@ const _SURCHARGE_SLABS_OLD_REGIME: NonNullable<
   [Infinity, 37],
 ];
 
-const _SURCHARGE_SLABS_NEW_REGIME: NonNullable<
-  SurchargeSlabs[FinancialYearStartIn]
-> = [
+const _SURCHARGE_SLABS_NEW_REGIME: SurchargeSlabs[number][1] = [
   [lakhs(50), 0],
   [crores(1), 10],
   [crores(2), 15],
@@ -29,10 +25,6 @@ const _SURCHARGE_SLABS_NEW_REGIME: NonNullable<
 ];
 
 export const SURCHARGE_SLABS_BY_REGIME: Record<Regime, SurchargeSlabs> = {
-  old: {
-    2023: _SURCHARGE_SLABS_OLD_REGIME,
-  },
-  new: {
-    2023: _SURCHARGE_SLABS_NEW_REGIME,
-  },
+  old: [[2023, _SURCHARGE_SLABS_OLD_REGIME]],
+  new: [[2023, _SURCHARGE_SLABS_NEW_REGIME]],
 } as const;

@@ -11,14 +11,15 @@ export const calculateIncomeTax = (
   taxableAmount: number,
 ) => {
   const slabsForRegime = INCOME_TAX_SLABS_BY_REGIME[regime];
-  const yearToConsider = getYearToConsider(year, Object.keys(slabsForRegime));
+  const yearToConsider = getYearToConsider(year, slabsForRegime);
 
   if (!yearToConsider) {
     throw new Error(`Invalid year ${year}`);
   }
 
-  const slabsForYear =
-    slabsForRegime[yearToConsider as keyof typeof slabsForRegime]!;
+  const slabsForYear = slabsForRegime.find(
+    ([year]) => year === yearToConsider,
+  )![1];
 
   const ageToConsider = getAgeToConsider(
     age,
