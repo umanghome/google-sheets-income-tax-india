@@ -1,15 +1,14 @@
 {
   "compilerOptions": {
     "incremental": true,
-    "target": "es2017",
+    "target": "ESNext",
     "outDir": "build/main",
     "rootDir": "src",
     "moduleResolution": "node",
-    "module": "commonjs",
+    "module": "ESNext",
     "declaration": true,
     "inlineSourceMap": false,
     "esModuleInterop": false,
-    "resolveJsonModule": true /* Include modules imported with .json extension. */,
     "strict": true /* Enable all strict type-checking options. */,
     /* Strict Type-Checking Options */
     // "noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,

@@ -9,9 +9,7 @@
   "license": "MIT",
   "keywords": [],
   "scripts": {
-    "build": "run-p build:*",
-    "build:main": "tsc -p tsconfig.json",
-    "build:module": "tsc -p tsconfig.module.json",
+    "build": "tsc -p tsconfig.json && rollup -c rollup.config.mjs",
     "fix": "run-s fix:*",
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "fix:lint": "eslint src --ext .ts --fix",
@@ -45,6 +43,8 @@
   "devDependencies": {
     "@ava/typescript": "^4.1.0",
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
+    "@rollup/plugin-commonjs": "25.0.7",
+    "@rollup/plugin-node-resolve": "15.2.3",
     "@typescript-eslint/eslint-plugin": "^7.6.0",
     "@typescript-eslint/parser": "^7.6.0",
     "ava": "^6.1.2",
@@ -63,6 +63,7 @@
     "nyc": "^15.1.0",
     "open-cli": "^8.0.0",
     "prettier": "3.2.5",
+    "rollup": "4.14.2",
     "standard-version": "^9.5.0",
     "ts-node": "^10.9.2",
     "typedoc": "^0.25.13",
