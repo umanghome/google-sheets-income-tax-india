@@ -1,11 +1,11 @@
 import test from 'ava';
 
-import { double, power } from './number';
+import { lakhs, crores } from './number';
 
-test('double', (t) => {
-  t.is(double(2), 4);
+test('lakhs', (t) => {
+  t.is(lakhs(2), 200000);
 });
 
-test('power', (t) => {
-  t.is(power(2, 4), 16);
+test('crores', (t) => {
+  t.is(crores(2), 20000000);
 });
