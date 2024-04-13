@@ -8,7 +8,7 @@ on:
     branches: ['main']
     paths:
       - .github/workflows/test.yml
-      - src/
+      - src/**/*
       - package-lock.json
       - tsconfig.json
       - rollup.config.js
@@ -18,7 +18,7 @@ on:
     branches: ['main']
     paths:
       - .github/workflows/test.yml
-      - src/
+      - src/**/*
       - package-lock.json
       - tsconfig.json
       - rollup.config.js
