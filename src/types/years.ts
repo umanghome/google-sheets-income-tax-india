@@ -1,1 +1,1 @@
-export type FinancialYearStartIn = '2023' | '2024';
+export type FinancialYearStartIn = 2023 | 2024;

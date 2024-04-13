@@ -1,7 +1,7 @@
-export const getYearToConsider = (year: string | number, years: string[]) => {
+export const getYearToConsider = (year: number | string, years: string[]) => {
   const yearAsNum = Number(year);
 
-  return years
+  const found = years
     .sort()
     .reverse()
     .find((y) => {
@@ -9,9 +9,11 @@ export const getYearToConsider = (year: string | number, years: string[]) => {
 
       return _year <= yearAsNum;
     });
+
+  return Number(found);
 };
 
-export const getAgeToConsider = (age: string | number, ages: number[]) => {
+export const getAgeToConsider = (age: number | string, ages: number[]) => {
   const ageAsNum = Number(age);
 
   const sorted = ages.sort((a, b) => a - b);
