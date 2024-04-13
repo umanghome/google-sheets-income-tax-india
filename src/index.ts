@@ -9,10 +9,10 @@ import { FinancialYearStartIn } from './types/years.js';
 /**
  * Get income tax without surcharge and cess.
  *
- * @param {number} year Year in which financial year starts. Eg. "2024"
- * @param age Age of the taxpayer. Eg. 30
- * @param regime Regime, "old" or "new"
- * @param taxableAmount Taxable amount
+ * @param {2023|2024} year Year in which financial year starts. Eg. 2024
+ * @param {number} age Age of the taxpayer. Eg. 30
+ * @param {"old"|"new"} regime Regime, "old" or "new"
+ * @param {number} taxableAmount Taxable amount
  * @returns {number}
  *
  * @customfunction
@@ -31,10 +31,10 @@ function INCOME_TAX(
 /**
  * Get surcharge based on taxable income.
  *
- * @param {number} year Year in which financial year starts. Eg. "2024"
- * @param age Age of the taxpayer. Eg. 30
- * @param regime Regime, "old" or "new"
- * @param taxableAmount Taxable amount
+ * @param {2023|2024} year Year in which financial year starts. Eg. 2024
+ * @param {number} age Age of the taxpayer. Eg. 30
+ * @param {"old"|"new"} regime Regime, "old" or "new"
+ * @param {number} taxableAmount Taxable amount
  * @returns {number}
  *
  * @customfunction
@@ -53,10 +53,10 @@ function SURCHARGE(
 /**
  * Get cumulative income tax — includes surcharge and cess
  *
- * @param {number} year Year in which financial year starts. Eg. "2024"
- * @param age Age of the taxpayer. Eg. 30
- * @param regime Regime, "old" or "new"
- * @param taxableAmount Taxable amount
+ * @param {2023|2024} year Year in which financial year starts. Eg. 2024
+ * @param {number} age Age of the taxpayer. Eg. 30
+ * @param {"old"|"new"} regime Regime, "old" or "new"
+ * @param {number} taxableAmount Taxable amount
  * @returns {number}
  *
  * @customfunction
