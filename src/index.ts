@@ -1,8 +1,8 @@
-// eslint-disable @typescript-eslint/no-unused-vars
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { calculateIncomeTax } from './lib/income-tax';
-import { Regime } from './types/regime';
-import { FinancialYearStartIn } from './types/years';
+import { calculateIncomeTax } from './lib/income-tax.js';
+import { Regime } from './types/regime.js';
+import { FinancialYearStartIn } from './types/years.js';
 
 /**
  *
@@ -15,7 +15,7 @@ import { FinancialYearStartIn } from './types/years';
  * @customfunction
  *
  */
-// @ts-ignore This function is unused in this file and it cannot be exported as `exports.INCOME_TAX` will throw an error in Apps Script
+// @ts-expect-error This function is unused in this file and it cannot be exported as `exports.INCOME_TAX` will throw an error in Apps Script
 function INCOME_TAX(
   year: FinancialYearStartIn,
   age: number,

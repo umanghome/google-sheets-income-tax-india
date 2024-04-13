@@ -1,6 +1,6 @@
 import test from 'ava';
 
-import { calculateIncomeTax } from './income-tax';
+import { calculateIncomeTax } from './income-tax.js';
 
 test('calculateIncomeTax: FY 2021-22 is invalid', (t) => {
   const error = t.throws(

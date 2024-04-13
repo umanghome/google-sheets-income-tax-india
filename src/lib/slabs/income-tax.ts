@@ -1,6 +1,6 @@
-import { Regime } from '../../types/regime';
-import { FinancialYearStartIn } from '../../types/years';
-import { lakhs } from '../number';
+import { Regime } from '../../types/regime.js';
+import { FinancialYearStartIn } from '../../types/years.js';
+import { lakhs } from '../number.js';
 
 type Age = number;
 type MaximumAmount = number;

@@ -1,6 +1,6 @@
 import test from 'ava';
 
-import { crores, lakhs } from './number';
+import { crores, lakhs } from './number.js';
 
 test('lakhs', (t) => {
   t.is(lakhs(2), 200000);

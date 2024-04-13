@@ -4,12 +4,13 @@
   "description": "A Google Sheets add-on with functions to calculate Income Tax for India",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
-  "module": "build/module/index.js",
+  "type": "module",
   "repository": "https://github.com/umanghome/google-sheets-income-tax-india",
   "license": "MIT",
   "keywords": [],
   "scripts": {
-    "build": "tsc -p tsconfig.json && rollup -c rollup.config.mjs",
+    "clean": "rm -rf build",
+    "build": "npm run clean && tsc -p tsconfig.json && rollup -c rollup.config.js",
     "fix": "run-s fix:*",
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "fix:lint": "eslint src --ext .ts --fix",
@@ -17,7 +18,7 @@
     "test:lint": "eslint src --ext .ts",
     "test:prettier": "prettier \"src/**/*.ts\" --list-different",
     "test:spelling": "cspell \"{README.md,.github/*.md,src/**/*.ts}\"",
-    "test:unit": "nyc --silent ava",
+    "test:unit": "NODE_OPTIONS='--experimental-specifier-resolution=node' nyc --silent ava",
     "check-cli": "run-s test diff-integration-tests check-integration-tests",
     "check-integration-tests": "run-s check-integration-test:*",
     "diff-integration-tests": "mkdir -p diff && rm -rf diff/test && cp -r test diff/test && rm -rf diff/test/test-*/.git && cd diff && git init --quiet && git add -A && git commit --quiet --no-verify --allow-empty -m 'WIP' && echo '\\n\\nCommitted most recent integration test output in the \"diff\" directory. Review the changes with \"cd diff && git diff HEAD\" or your preferred git diff viewer.'",
@@ -38,7 +39,7 @@
     "prepare": "husky"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=20"
   },
   "devDependencies": {
     "@ava/typescript": "^4.1.0",

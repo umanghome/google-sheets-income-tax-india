@@ -1,8 +1,8 @@
-import { Regime } from '../types/regime';
-import { FinancialYearStartIn } from '../types/years';
+import { Regime } from '../types/regime.js';
+import { FinancialYearStartIn } from '../types/years.js';
 
-import { INCOME_TAX_SLABS_BY_REGIME } from './slabs/income-tax';
-import { getAgeToConsider, getYearToConsider } from './utils';
+import { INCOME_TAX_SLABS_BY_REGIME } from './slabs/income-tax.js';
+import { getAgeToConsider, getYearToConsider } from './utils.js';
 
 export const calculateIncomeTax = (
   year: FinancialYearStartIn,
