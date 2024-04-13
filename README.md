@@ -6,3 +6,4 @@ A Google Sheets add-on with functions to calculate Income Tax for India
 
 - [x] Add logic + tests
 - [ ] Set up add-in
+- [ ] Update README
