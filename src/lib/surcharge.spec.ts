@@ -22,12 +22,12 @@ test('calculateSurcharge: new regime, no surcharge', (t) => {
   t.is(calculateSurcharge(2023, 30, 'new', 25_00_000), 0);
 });
 
-test('calculateSurcharge: new regime, with surcharge', (t) => {
-  t.is(calculateSurcharge(2023, 30, 'new', 6_00_000_00), 44_25_000);
-});
-
 test('calculateSurcharge: new regime, surcharge at last slab', (t) => {
   t.is(calculateSurcharge(2023, 30, 'new', 75_00_000), 1_95_000);
+});
+
+test('calculateSurcharge: new regime, with surcharge', (t) => {
+  t.is(calculateSurcharge(2023, 30, 'new', 6_00_000_00), 44_25_000);
 });
 
 test('calculateSurcharge: new regime, surcharge with marginal relief', (t) => {
