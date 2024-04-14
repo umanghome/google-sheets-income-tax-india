@@ -10,9 +10,11 @@ export const getYearToConsider = (
     return;
   }
 
-  return years.find((_year) => {
-    return yearAsNum <= _year;
-  });
+  return (
+    years.find((_year) => {
+      return yearAsNum <= _year;
+    }) || years[years.length - 1]
+  );
 };
 
 export const getAgeToConsider = (
