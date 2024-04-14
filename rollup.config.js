@@ -8,7 +8,7 @@ export default [
     treeshake: false,
     output: {
       name: 'main',
-      file: 'build/bundle.js',
+      file: 'dist/bundle.js',
       format: 'cjs',
     },
   },
