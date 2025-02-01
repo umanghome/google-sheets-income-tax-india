@@ -52,11 +52,26 @@ const _INCOME_TAX_SLABS_NEW_REGIME_2023 = [
     ],
   ],
 ];
+const _INCOME_TAX_SLABS_NEW_REGIME_2025 = [
+  [
+    Infinity,
+    [
+      [lakhs(4), 0],
+      [lakhs(8), 5],
+      [lakhs(12), 10],
+      [lakhs(16), 15],
+      [lakhs(20), 20],
+      [lakhs(24), 25],
+      [Infinity, 30],
+    ],
+  ],
+];
 const _INCOME_TAX_SLABS_OLD_REGIME = [
   [2023, _INCOME_TAX_SLABS_OLD_REGIME_2023],
 ];
 const _INCOME_TAX_SLABS_NEW_REGIME = [
   [2023, _INCOME_TAX_SLABS_NEW_REGIME_2023],
+  [2025, _INCOME_TAX_SLABS_NEW_REGIME_2025],
 ];
 const INCOME_TAX_SLABS_BY_REGIME = {
   old: _INCOME_TAX_SLABS_OLD_REGIME,
